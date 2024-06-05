@@ -6,7 +6,7 @@
     body {
       font-family: Arial, sans-serif;
     }
-    #acceptButton {
+    #acceptButton, #addTenButton, #excludeButton {
       margin-top: 20px;
       padding: 10px;
       background-color: #4CAF50;
@@ -14,11 +14,19 @@
       border: none;
       cursor: pointer;
     }
+    #addTenButton {
+      background-color: #2196F3; /* Blue color for differentiation */
+    }
+    #excludeButton {
+      background-color: #f44336; /* Red color for exclusion */
+    }
   </style>
 </head>
 <body>
-  <p>The page has been loaded for 10 seconds.</p>
-  <button id="acceptButton">Accept</button>
+  <p>The page has been loaded for 10 minutes.</p>
+  <button id="acceptButton">OK</button>
+  <button id="addTenButton">Añadir otros 10</button>
+  <button id="excludeButton">Excluir web</button>
   <script src="popup.js"></script>
 </body>
 </html>

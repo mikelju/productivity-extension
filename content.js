@@ -49,7 +49,7 @@ function showPopup() {
   contentSection.style.padding = '20px';
 
   contentSection.innerHTML = `
-    <h2 style="font-size: 24px; margin: 0; margin-bottom: 20px;">Ya llevas ya 10 minutos por aquí...</h2>
+    <h2 style="font-size: 24px; margin: 0; margin-bottom: 20px;">Being arround for 10 minutes...</h2>
     <div style="display: flex; gap: 20px;">
       <button id="acceptButton" style="
         padding: 10px 20px;
@@ -68,7 +68,7 @@ function showPopup() {
         border-radius: 5px;
         cursor: pointer;
         font-size: 16px;
-      ">Añadir otros 10</button>
+      ">ADD ANOTHER 10 MINS</button>
     </div>
   `;
 
