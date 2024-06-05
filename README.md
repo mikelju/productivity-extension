@@ -2,20 +2,20 @@
 
 <img src="icon.png" align="right" width="120"/>
 
-Page Load Timer is a simple Chrome extension that helps you manage your time spent on web pages. It monitors the amount of time you spend on a web page and notifies you after a specified period. The extension provides options to close the tab, extend the time, or exclude specific domains from tracking.
+Page Load Timer is a simple Chrome extension that helps you manage your time spent on web pages. It monitors the amount of time you spend on a web page and notifies you after a specified period. The extension provides options to close the tab or extend the time.
 
 ## Features
 
 - **Time Tracking**: Automatically starts tracking the time you spend on a web page.
 - **Notifications**: Alerts you when you have spent 10 minutes on a page.
-- **Actions**: Options to close the tab, add more time, or exclude the domain from tracking.
+- **Actions**: Options to close the tab or add more time.
 - **Active Tab Only**: Only tracks time when the tab is active.
 
 ## Installation
 
 1. Clone or download the repository:
     ```sh
-    git clone https://github.com/yourusername/page-load-timer.git
+    git clone https://github.com/yourusername/productivity-extension.git
     ```
 2. Open Google Chrome and navigate to `chrome://extensions/`.
 3. Enable **Developer mode** by toggling the switch in the top right corner.
@@ -28,7 +28,6 @@ Page Load Timer is a simple Chrome extension that helps you manage your time spe
 3. After 10 minutes, a popup will appear with the following options:
    - **OK**: Close the current tab.
    - **Add another 10 minutes**: Close the popup and extend the timer by 10 minutes.
-   - **Exclude web**: Exclude the current domain from tracking.
 
 ## Development
 
