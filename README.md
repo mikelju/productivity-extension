@@ -1,6 +1,6 @@
 # Page Load Timer Extension
 
-![Icon](icon.png)
+<img src="icon.png" align="right" width="120"/>
 
 Page Load Timer is a simple Chrome extension that helps you manage your time spent on web pages. It monitors the amount of time you spend on a web page and notifies you after a specified period. The extension provides options to close the tab, extend the time, or exclude specific domains from tracking.
 
