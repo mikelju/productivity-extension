@@ -1,11 +1,18 @@
 let timer;
 let startTime;
 let elapsedTime = 0;
+let isActive = false;
+let popupVisible = false;
 
 // Function to create and show the popup
 function showPopup() {
+  if (popupVisible) return; // Prevent multiple popups
+
+  popupVisible = true;
+
   // Create an overlay div
   let overlay = document.createElement('div');
+  overlay.id = 'timePopupOverlay';
   overlay.style.position = 'fixed';
   overlay.style.top = '0';
   overlay.style.left = '0';
@@ -49,7 +56,7 @@ function showPopup() {
   contentSection.style.padding = '20px';
 
   contentSection.innerHTML = `
-    <h2 style="font-size: 24px; margin: 0; margin-bottom: 20px;">Being arround for 10 minutes...</h2>
+    <h2 style="font-size: 24px; margin: 0; margin-bottom: 20px;">Ya llevas ya 10 minutos por aquí...</h2>
     <div style="display: flex; gap: 20px;">
       <button id="acceptButton" style="
         padding: 10px 20px;
@@ -68,7 +75,7 @@ function showPopup() {
         border-radius: 5px;
         cursor: pointer;
         font-size: 16px;
-      ">ADD ANOTHER 10 MINS</button>
+      ">Añadir otros 10</button>
     </div>
   `;
 
@@ -83,17 +90,20 @@ function showPopup() {
   // Event listeners for buttons
   document.getElementById('acceptButton').onclick = function() {
     chrome.runtime.sendMessage({ action: "closeTab" });
+    popupVisible = false;
   };
 
   document.getElementById('addTenButton').onclick = function() {
     document.body.removeChild(overlay);
-    startTimer();
+    popupVisible = false;
+    resetTimer();
   };
 }
 
 // Function to start the timer
 function startTimer() {
   startTime = Date.now();
+  isActive = true;
   timer = setInterval(checkTime, 1000);
 }
 
@@ -101,11 +111,20 @@ function startTimer() {
 function pauseTimer() {
   clearInterval(timer);
   elapsedTime += Date.now() - startTime;
+  isActive = false;
+}
+
+// Function to reset the timer
+function resetTimer() {
+  clearInterval(timer);
+  elapsedTime = 0;
+  popupVisible = false;
+  startTimer();
 }
 
 // Function to check the time and show popup if needed
 function checkTime() {
-  if (elapsedTime + (Date.now() - startTime) >= 600000) { // 10 minutes
+  if (elapsedTime + (Date.now() - startTime) >= 6000) { // 10 minutes
     clearInterval(timer);
     showPopup();
   }
@@ -123,5 +142,5 @@ document.addEventListener('visibilitychange', function() {
 window.addEventListener('blur', pauseTimer);
 window.addEventListener('focus', startTimer);
 
-// Start the initial timer when the page loads
-startTimer();
+// Start the initial timer when the page loads or is refreshed
+resetTimer();
