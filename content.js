@@ -124,7 +124,7 @@ function resetTimer() {
 
 // Function to check the time and show popup if needed
 function checkTime() {
-  if (elapsedTime + (Date.now() - startTime) >= 600000) { // 10 minutes
+  if (elapsedTime + (Date.now() - startTime) >= 6000) { // 10 minutes
     clearInterval(timer);
     showPopup();
   }
